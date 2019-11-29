@@ -31,7 +31,7 @@ init:
 	pio init -b uno --ide vim 
 
 monit:
-	pio device monitor -b 115200
+	$(PIPENV) pio device monitor -b 115200
 
 ping:
 	ping $(ip)
