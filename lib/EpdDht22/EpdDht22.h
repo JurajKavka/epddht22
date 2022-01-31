@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <DHT.h>
-#include <GxEPD2_AVR_BW.h>
 #include "CircularArray.h"
+#include <GxEPD2_AVR_BW.h>
 
 #define DHT_TYPE DHT22
 
@@ -41,8 +41,8 @@ struct Dht22Data {
 
 
 struct MinMax {
-    float *min;
-    float *max;
+    float min;
+    float max;
 };
 
 
@@ -85,7 +85,7 @@ class EpdDht22 {
         void _drawBar(float value, uint16_t xPos);
         void _printData(Dht22Data *data);
         void _printHistory();
-        void _printVcc();
+        void _printVcc(long vcc);
     public:
         EpdDht22(Settings *settings);
         void powerUp();
